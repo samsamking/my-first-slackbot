@@ -13,7 +13,7 @@ Excited? Let's start.
 
 ### What commands it responds to?
 
-##### 1) "pizzatime" conversation
+#### 1) "pizzatime" conversation
   1. Direct message (private message) or direct mention (@lemmingbot to start) Lemmingbot inside Slack
   2. Type in "pizzatime" or "pizza time"
   3. Lemmingbot will say "What flavor of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?"
