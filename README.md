@@ -13,7 +13,7 @@ Excited? Let's start.
 
 ### what commands it responds to?
 
-- "pizzatime" 
+#### "pizzatime" 
   1. Direct message (private message) or direct mention (@lemmingbot to start) Lemmingbot inside Slack
   2. Type in "pizzatime" or "pizza time"
   3. Lemmingbot will say "What flavor of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?"
@@ -24,17 +24,17 @@ Excited? Let's start.
   8. Type in any random address eg "10 Oxford St, Surry Hills."
   9. The conversation will finish here "Great, see you soon"
 
-- all the names
+#### all the names
   1. Direct message or direct mention Lemmingbot inside Slack
   2. Type in either 'all the names', 'all the names in JS class', or 'all the names in the class'
   3. Lemmingbot will tell you all the names in the JS class/general channel excluding all the bots' names
 
-- names with letter(s)
+#### names with letter(s)
   1. Direct message or direct mention Lemmingbot
   2. Type in "names with"+ a letter eg "s" or letters eg "ss", for example type in "names with s", it will return all the names with that/those letter(s) in the class
   3. If you type in "names with" + letters eg "names with vohkfodhfdnjfd" which are not in anyone's name, Lemmingbot will tell you there is no name matching
 
-- attachments
+#### attachments
   1. Direct message or direct mention Lemmingbot in Slack
   2. Type in either 'show me an animal', 'show me a random animal in the zoo', 'show me a random animal', or 'show me an animal in the zoo'
   3. Lemmingbot will reply you with information about Taronga Zoo, a link to the zoo, an icon and current time in the footer, as well as a random selected animal image each time
