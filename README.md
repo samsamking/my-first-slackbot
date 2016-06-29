@@ -2,54 +2,53 @@
 
 This project is to showcase a working Slackbot, built by Sam.
 
-## What does my bot do?
+### What does my bot do?
 
-1) It creates a "pizza time" conversation with the user
-2) It shows all the names in the class
-3) To take the names further, it tells you all the names with (a) certain character(s) in their names
-4) It uses attachments, so everytime you want to see an animanl, it shows you some info about Taronga Zoo and give you a random animal picture.
+1. It creates a "pizzatime" conversation with the users
+2. It responses to show all the names in the JS class/general channel
+3. To take the names further, it tells you all the names with (a) certain letter(s) in their names
+4. It uses attachments, so every time you want to see an animal, it replies you with information about Taronga Zoo, a link to the zoo, an icon and current time in the footer, as well as a random selected animal image each time
+
 Excited? Let's start.
 
-## what commands it responds to?
+### what commands it responds to?
 
-- "pizza time" 
-  1) direct message (private message) or direct mention (@lemmingbot to start) lemmingbot, type in "pizzatime" or "pizza time"
-  2) lemmingbot will say "What flavor of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?"
-  3) type in either "Hawaiian", "meatlovers", "chicken", "beef" or "vegetarian" and wait for lemmingbot to reply
-  4) Lemmingbot will ask you "What size would you like? 10", 12" or 14""
-  5) You must reply with a number - 10" 12", or 14" otherwise Lemmingbot is very stuburn and will not let you pass
-  6) then Lemmingbot will ask you "So where do you want it delivered?"
-  7) Type any random address eg "10 Oxford St, Surry Hills"
-  8) The conversation will finish here "Great, see you soon"
+- "pizzatime" 
+  1. Direct message (private message) or direct mention (@lemmingbot to start) Lemmingbot inside Slack
+  2. Type in "pizzatime" or "pizza time"
+  3. Lemmingbot will say "What flavor of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?"
+  4. Type in either "Hawaiian", "meatlovers", "chicken", "beef" or "vegetarian"
+  5. Lemmingbot will ask you "What size would you like? 10", 12" or 14"?"
+  6. You must reply with a number - either 10, 12, or 14, otherwise Lemmingbot is very stubborn and will not let you pass. (There is an if statement here to check the patten of your answer)
+  7. Then Lemmingbot will ask you "So where do you want it delivered to?"
+  8. Type in any random address eg "10 Oxford St, Surry Hills."
+  9. The conversation will finish here "Great, see you soon"
 
 - all the names
-  1) direct message or direct mention lemmingbot, type in either 'all the names', 'all the names in JS class', or 'all the names in the class'
-  2) Lemmingbot will tell you all the names in the JS class/general channel excluding all the bots' names
+  1. Direct message or direct mention Lemmingbot inside Slack
+  2. Type in either 'all the names', 'all the names in JS class', or 'all the names in the class'
+  3. Lemmingbot will tell you all the names in the JS class/general channel excluding all the bots' names
 
-- names with character(s)
-  1) direct message or direct mention Lemmingbot, type in "names with"+ a character eg "s" or characters eg "ss", for example type in "names with s", it will return all the names with the character(s) in the class
-  2) if you type in "names with" + characters which are not in anyone's name, Lemmingbot will tell you there is no name matching
+- names with letter(s)
+  1. Direct message or direct mention Lemmingbot
+  2. Type in "names with"+ a letter eg "s" or letters eg "ss", for example type in "names with s", it will return all the names with that/those letter(s) in the class
+  3. If you type in "names with" + letters eg "names with vohkfodhfdnjfd" which are not in anyone's name, Lemmingbot will tell you there is no name matching
 
 - attachments
-  1) direct message or direct mention Lemmingbot, type in either 'show me an animal', 'show me a random animal in the zoo', 'show me a random animal', or 'show me an animal in the zoo'
-  2) Lemmingbot will reply you with information about Taronga Zoo, a link to the zoo, an icon and current time in the footer, as well as a random selected animal image
+  1. Direct message or direct mention Lemmingbot in Slack
+  2. Type in either 'show me an animal', 'show me a random animal in the zoo', 'show me a random animal', or 'show me an animal in the zoo'
+  3. Lemmingbot will reply you with information about Taronga Zoo, a link to the zoo, an icon and current time in the footer, as well as a random selected animal image each time
 
-## What approach has been taken?
+### What approach has been taken?
 
-1) A lot of researches, I started with controller.hears "hello", based on that, I checked out many examples as well as read the documents on slack API
+1. I did multiple searches. I started with controller.hears "hello", based on that, I checked out many examples as well as read the documents on slack API
+2. I had a clear picture what I wanted to do after the research, had pseudocode in mind
+3. One thing really helped me was to test small pieces of functionality frequently as in "Suggested way to get started" 
+4. Once you understand the structure of Slack, it is a matter of getting all the data into a structure you want
+5. "Google is your friend" when my code was not working
+6. Just kept trying until it worked.
 
-2) Had a clear picture what I wanted to do after the research, have pseudocode in mind
-
-3) One thing really helped me was to test small pieces of functionality frequently as in "Suggested way to get started" 
-
-4) Once you understand the structure of Slack, it is a matter of getting all the data into a structure you want
-
-6) "Google is your friend" when the my code was not working
-
-7) Just kept trying until it worked.
-
-
-## installation instructions (below is stolen from Jess)
+### installation instructions (below is stolen from Jess)
 
 -------------------------------------------------------------------------------------------------
 The tools used include:
