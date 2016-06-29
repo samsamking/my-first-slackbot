@@ -11,7 +11,7 @@ This project is to showcase a working Slackbot, built by Sam.
 
 Excited? Let's start.
 
-### what commands it responds to?
+### What commands it responds to?
 
 #### 1) "pizzatime" conversation
   1. Direct message (private message) or direct mention (@lemmingbot to start) Lemmingbot inside Slack
@@ -48,7 +48,7 @@ Excited? Let's start.
 5. "Google is your friend" when my code was not working
 6. Just kept trying until it worked.
 
-### installation instructions (below is stolen from Jess, thanks;)
+### Installation instructions (below is stolen from Jess, thanks;)
 
 -------------------------------------------------------------------------------------------------
 The tools used include:
