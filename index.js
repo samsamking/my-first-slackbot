@@ -125,7 +125,7 @@ controller.hears(['names with .*', 'name with .*' ], ['direct_message', 'direct_
 			var user =newMemberArray.join(", ")
 			bot.reply(message, user);
 			if(!isMatchFound){
-				bot.reply(message, "Sorry there is no name with the letter(s) you entered.");
+				bot.reply(message, "Sorry there is no name with the charater(s) you entered.");
 			}
 						
 		});
