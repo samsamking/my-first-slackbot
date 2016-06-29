@@ -48,7 +48,7 @@ Excited? Let's start.
 5. "Google is your friend" when my code was not working
 6. Just kept trying until it worked.
 
-### installation instructions (below is stolen from Jess, thanks)
+### installation instructions (below is stolen from Jess, thanks;)
 
 -------------------------------------------------------------------------------------------------
 The tools used include:
