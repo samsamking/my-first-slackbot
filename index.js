@@ -40,28 +40,28 @@ bot.startRTM(function(error, whichBot, payload) {
 controller.hears(['pizzatime', 'pizza time'],['direct_message', 'direct_mention'],function(bot,message) {
 	bot.startConversation(message, askFlavor);
 });
-askFlavor = function(response1, convo1) {
-	convo1.ask("What flavour of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?", function(response1, convo1) {
-		convo1.say("Awesome, " +response1.text+" it is.");
-		askSize(response1, convo1);
-		convo1.next();
+askFlavor = function(askFlavorResponse, askFlavorConvo) {
+	askFlavorConvo.ask("What flavour of pizza do you want? Hawaiian, meatlovers, chicken, beef or vegetarian?", function(askFlavorResponse, askFlavorConvo) {
+		askFlavorConvo.say("Awesome, " +askFlavorResponse.text+" it is.");
+		askSize(askFlavorResponse, askFlavorConvo);
+		askFlavorConvo.next();
 	});
-	askSize = function(response2, convo2) {
-		convo2.ask("What size would you like? 10\", 12\" or 14\" ?", function(response2, convo2) {
+	askSize = function(askSizeResponse, askSizeConvo) {
+		askSizeConvo.ask("What size would you like? 10\", 12\" or 14\" ?", function(askSizeResponse, askSizeConvo) {
 			var pattern=/^[0-9]\S\w*/;
-			if (pattern.test(response2.text)) {
-				convo2.say("Sweet, " +response2.text+" it is.")
-				askWhereDeliver(response2, convo2);
-				convo2.next();
+			if (pattern.test(askSizeResponse.text)) {
+				askSizeConvo.say("Sweet, " +askSizeResponse.text+" it is.")
+				askWhereDeliver(askSizeResponse, askSizeConvo);
+				askSizeConvo.next();
 			}else{
-				askSize(response1, convo1);
-				convo2.next();
+				askSize(askSizeResponse, askSizeConvo);
+				askSizeConvo.next();
 			}
 		});
-		askWhereDeliver = function(response3, convo3) { 
-			convo3.ask("So where do you want it delivered to?", function(response3, convo3) {
-				convo3.say("Great, see you soon.");
-				convo3.next();
+		askWhereDeliver = function(askWhereDeliverResponse, askWhereDeliverConvo) { 
+			askWhereDeliverConvo.ask("So where do you want it delivered to?", function(askWhereDeliverResponse, askWhereDeliverConvo) {
+				askWhereDeliverConvo.say("Great, see you soon.");
+				askWhereDeliverConvo.next();
 			});
 		}	
 	}
@@ -74,11 +74,11 @@ askFlavor = function(response1, convo1) {
   3. Lemmingbot will tell you all the names in the JS class/general channel excluding all the bots' names*/
   
 controller.hears(['all the names', 'all the names in JS class', 'all the names in the class'], ['direct_message', 'direct_mention', 'mention'], function(bot, message) {
-	bot.api.channels.info({channel: 'C0ZSX0Z9N'}, function channelsInfo(err1, response1) {
-		var membersInGeneral=response1.channel.members;
+	bot.api.channels.info({channel: 'C0ZSX0Z9N'}, function channelsInfo(channelInfoErr, channelInfoResponse) {
+		var membersInGeneral=channelInfoResponse.channel.members;
 		var newMemberArray=[];
-		bot.api.users.list({},function usersList(err2,response2) {
-			var allMembers=response2.members;
+		bot.api.users.list({},function usersList(usersListErr, usersListResponse) {
+			var allMembers=usersListResponse.members;
 			for (var j=0; j<membersInGeneral.length; j++){
 				for (var i=0; i<allMembers.length; i++){	
 					if (membersInGeneral[j]==allMembers[i].id){
@@ -98,23 +98,19 @@ controller.hears(['all the names', 'all the names in JS class', 'all the names i
   2. Type in "names with"+ a letter eg "s" or letters eg "ss", for example type in "names with s", it will return all the names with that/those letter(s) in the class
   3. If you type in "names with" + letters eg "names with vohkfodhfdnjfd" which are not in anyone's name, Lemmingbot will tell you there is no name matching*/
   
-controller.hears(['names with .*', 'name with .*' ], ['direct_message', 'direct_mention'], function(bot, message) {
-	bot.api.channels.info({channel: 'C0ZSX0Z9N'}, function channelsInfo(err1, response1) {
-		var membersInGeneral=response1.channel.members;
+controller.hears(['names with (.*)', 'name with (.*)' ], ['direct_message', 'direct_mention'], function(bot, message) {
+	bot.api.channels.info({channel: 'C0ZSX0Z9N'}, function channelsInfo(channelsInfoErr, channelsInfoResponse) {
+		var membersInGeneral=channelsInfoResponse.channel.members;
 		var newMemberArray=[];
 		var isMatchFound = false;
-		function keepLastWord(words) {
-			var n = words.split(" ");
-			return n[n.length - 1];
-		}
-		var characters=keepLastWord(message.text).toLowerCase();
-		bot.api.users.list({},function usersList(err2,response2) {
-			var allMembers=response2.members;
+		var lastWord=message.match[1];
+		bot.api.users.list({},function usersList(usersListErr,usersListResponse) {
+			var allMembers=usersListResponse.members;
 			allMembers.forEach(function(eachMember, index){
 				for(var i = 0; i < membersInGeneral.length; i++){
 					if (eachMember.id ==membersInGeneral[i]){
 						var memberName=eachMember.name;
-						if(memberName.toLowerCase().indexOf(characters) != -1){
+						if(memberName.toLowerCase().indexOf(lastWord) != -1){
 							newMemberArray.push(memberName);
 							isMatchFound = true;
 							break;
